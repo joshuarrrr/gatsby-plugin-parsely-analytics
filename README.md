@@ -1,6 +1,6 @@
 # gatsby-plugin-parsely
 
-Easily add [https://www.parse.ly/](Parse.ly Analytics) to your [Gatsby](https://www.gatsbyjs.org/) site.
+Easily add [Parse.ly Analytics](https://www.parse.ly/) to your [Gatsby](https://www.gatsbyjs.org/) site.
 
 ## Installation
 
