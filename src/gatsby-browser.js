@@ -7,7 +7,6 @@ exports.onRouteUpdate = function handleRouteUpdate(
   pluginOptions
 ) {
   const { prevLocation, location } = apiCallbackContext;
-  console.log(location, prevLocation);
   const options = getOptions(pluginOptions);
   if (!options.isEnabled) return;
 
