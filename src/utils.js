@@ -1,6 +1,8 @@
 const DEFAULT_OPTIONS = {
   apikey: null,
-  enableInDevelopment: false
+  enableInDevelopment: false,
+  parselyCDN: "cdn.parsely.com",
+  pixelHost: null
 };
 
 export function getOptions(pluginOptions) {
@@ -15,7 +17,7 @@ export function getOptions(pluginOptions) {
 export function absoluteUrlForLocation(location) {
   return `${window.location.protocol}//${window.location.host}${
     location.pathname
-  }${location.search}${location.hash}`;
+    }${location.search}${location.hash}`;
 }
 
 function parselyTrackPageViewExists() {
