@@ -11,7 +11,10 @@ exports.onRenderBody = function handleRenderBody(
 ) {
   const options = getOptions(pluginOptions);
   if (options.isEnabled) {
-    const { apikey } = options;
+    const { apikey, parselyCDN } = options;
+
+    // pixelHost needs double-quotes because of how it'll be embedded.
+    const pixelHost = options.pixelHost ? `"${options.pixelHost}"` : null;
 
     return setHeadComponents([
       <script
@@ -19,7 +22,7 @@ exports.onRenderBody = function handleRenderBody(
         id="parsely-cfg"
         async
         defer
-        src={`//cdn.parsely.com/keys/${apikey}/p.js`}
+        src={`//${parselyCDN}/keys/${apikey}/p.js`}
       />,
       <script
         key="gatsby-plugin-parsely-analytics-onload"
@@ -28,6 +31,7 @@ exports.onRenderBody = function handleRenderBody(
           window.PARSELY = {
             pageviewQueue: [],
             autotrack: false,
+            pixelhost: ${pixelHost},
             onload: function() {
               for (var i = 0; i < window.PARSELY.pageviewQueue.length; i++) {
                 PARSELY.beacon.trackPageView(window.PARSELY.pageviewQueue[i]);
